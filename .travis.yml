@@ -2,15 +2,14 @@
 
 language: python
 python:
+   -3.9
   - 3.8
   - 3.7
-  - 3.6
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
     - pip install --upgrade pip
     - pip install -U tox-travis
-    - pip install -r requirements.txt
 
 # Command to run tests, e.g. python setup.py test
 script: tox
@@ -23,8 +22,7 @@ deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: __token__
-  password:
-    secure: pypi-pypi-AgEIcHlwaS5vcmcCJDU3ZGM2NWE5LWQwNDItNGQ3My04NzE0LThkY2M4ODM1ZTQ3ZQACO3sicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJjb3ZpZDE5LXVzIl19LCAidmVyc2lvbiI6IDF9AAAGIPtA5l0hNvLyEsFUwZLyPhT-3g5YsQAzbJr-cIO6nlNH
+  password: pypi-pypi-AgEIcHlwaS5vcmcCJDU3ZGM2NWE5LWQwNDItNGQ3My04NzE0LThkY2M4ODM1ZTQ3ZQACO3sicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJjb3ZpZDE5LXVzIl19LCAidmVyc2lvbiI6IDF9AAAGIPtA5l0hNvLyEsFUwZLyPhT-3g5YsQAzbJr-cIO6nlNH
   on:
     tags: true
     repo: HaigangLiu/covid19_us
