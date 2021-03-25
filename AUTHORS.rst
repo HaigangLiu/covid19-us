@@ -1,9 +1,6 @@
 =======
-Credits
+Developer
 =======
 
-Development Lead
-----------------
-
-* Haigang Liu <liuhaigang1989@gmail.com>
+* Haigang Liu <haigang@email.sc.edu>
 
