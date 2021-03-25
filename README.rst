@@ -26,10 +26,8 @@ Features
 
 .. code-block:: python3
 
-       from covid19_us import download
-       sc_xmas = download.get_daily_data('SC',
-                                         dates=['2020-12-31', '2021-01-01'],
-                                         columns=['positiveIncrease'])
+       from covid19_us.download import get_daily_data
+       sc_xmas = get_daily_data('SC', dates=['2020-12-31', '2021-01-01'])
 
 2. Download data by county in the United States
 
@@ -37,10 +35,8 @@ Features
 
 .. code-block:: python3
 
-       from covid19_us import download
-       sc_new_year = download.get_daily_data_by_county('SC',
-                                                       counties='Richland',
-                                                       dates=['2020-12-31']))
+       from covid19_us.download import get_daily_data_by_county
+       sc_new_year = get_daily_data_by_county('SC', counties='Richland', dates=['2020-12-31']))
 
 3. Download data by zip code in the United States
 
@@ -48,8 +44,8 @@ Features
 
 .. code-block:: python3
 
-       from covid19_us import download
-       tn_new_year = download.get_daily_data_by_zip_code('TN',
-                                                         zip_codes=['38120']
-                                                         dates=['2021-01-01'])
+       from covid19_us.download import get_daily_data_by_zip_code
+       tn_new_year = get_daily_data_by_zip_code('TN', zip_codes=['38120'] dates=['2021-01-01'])
+
+
 
