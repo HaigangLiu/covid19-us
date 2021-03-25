@@ -22,7 +22,7 @@ Features
 
 1. Download data by state in the United States
 
-    :code:`get_daily_data()` is function to download daily data from a given state. An example is illustrated as follows.
+    :code:`get_daily_data()` is a function to download daily data from a given state. An example is illustrated as follows. Note that the following functions typically can accept both list type or string type. In other words, ['SC'] and 'SC' can be both understood as South Carolina correctly.
 
 .. code-block:: python3
 
@@ -33,7 +33,7 @@ Features
 
 2. Download data by county in the United States
 
-    :code:`get_daily_data_by_county()` is function to download daily data from a given county. An example is illustrated as follows. We support both county name and county FIPS, a unique identifier.
+    :code:`get_daily_data_by_county()` is a function to download daily data from a given county or counties. An example is illustrated as follows. We support both county name and county FIPS, a unique identifier.
 
 .. code-block:: python3
 
