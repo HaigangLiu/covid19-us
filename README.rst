@@ -39,7 +39,7 @@ Features
 
        from covid19_us import download
        sc_new_year = download.get_daily_data_by_county('SC',
-                                                       county='Richland',
+                                                       counties='Richland',
                                                        dates=['2020-12-31']))
 
 3. Download data by zip code in the United States
