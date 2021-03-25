@@ -5,17 +5,14 @@ covid19-us
 .. image:: https://img.shields.io/pypi/v/covid19_us.svg
         :target: https://pypi.python.org/pypi/covid19-us
 
-.. image:: https://img.shields.io/travis/HaigangLiu/covid_data_by_zip_code.svg
+.. image:: https://img.shields.io/travis/HaigangLiu/covid19-us.svg
         :target: https://travis-ci.com/HaigangLiu/covid19-us
 
-.. image:: https://readthedocs.org/projects/covid-data-by-zip-code/badge/?version=latest
-        :target: https://covid19-us.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
+
 
 * This package aims to provide a streamlined way to download covid data. We support the historical data sliced by state and county. We also support zip code as valid input type, but the covid counts is from the county where the zip code area is in.
 
 * Free software: MIT license
-
 
 Features
 --------
