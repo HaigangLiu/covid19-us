@@ -22,7 +22,7 @@ deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: __token__
-  password: pypi-pypi-AgEIcHlwaS5vcmcCJDU3ZGM2NWE5LWQwNDItNGQ3My04NzE0LThkY2M4ODM1ZTQ3ZQACO3sicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJjb3ZpZDE5LXVzIl19LCAidmVyc2lvbiI6IDF9AAAGIPtA5l0hNvLyEsFUwZLyPhT-3g5YsQAzbJr-cIO6nlNH
+  password: pypi-AgEIcHlwaS5vcmcCJDU3ZGM2NWE5LWQwNDItNGQ3My04NzE0LThkY2M4ODM1ZTQ3ZQACO3sicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJjb3ZpZDE5LXVzIl19LCAidmVyc2lvbiI6IDF9AAAGIPtA5l0hNvLyEsFUwZLyPhT-3g5YsQAzbJr-cIO6nlNH
   on:
     tags: true
     repo: HaigangLiu/covid19_us
