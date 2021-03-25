@@ -43,17 +43,22 @@ def get_daily_data(state, dates, columns=None):
         columns = ['date', 'state',
                    'positive', 'positiveIncrease',
                    'death', 'deathIncrease']
-
-    elif 'date' not in columns:
+    else:
         # state and date must be in the columns
         # since they are the key
-        columns.append('date')
-    elif 'state' not in columns:
-        columns.append('state')
+        for col in ['date', 'state']:
+            if col not in columns:
+                columns.append(col)
 
     covid_df = covid_df[columns]
-    covid_df.dropna(subset=['date'], inplace=True)
 
+    # make the naming of columns to be consistent
+    covid_df.rename({'positive': 'cases_cumulative',
+                     'positiveIncrease': 'cases',
+                     'death': 'deaths_cumulative',
+                     'deathIncrease': 'deaths'}, axis=1, inplace=True)
+
+    covid_df.dropna(subset=['date'], inplace=True)
     covid_df = covid_df[covid_df['date'].isin(dates)]
     covid_df.reset_index(drop=True, inplace=True)
     return covid_df
@@ -61,22 +66,32 @@ def get_daily_data(state, dates, columns=None):
 
 def _get_fips_to_zips_dict():
     """
-    :return: return a dict whose key is the zip code and value is fips (county)
-    code
+    :return: a dictionary whose key is zip and whose value is fip
     """
-    df_zips_and_fips = pd.read_csv(os.path.join(current_dir, 'fips_and_zip.txt'),
-                                   skiprows=1,
-                                   dtype={'FIPS state': str,
-                                          'county': str,
-                                          'ZIP Census Tabulation Area': str})
-    df_zips_and_fips = df_zips_and_fips[['county', 'ZIP Census Tabulation Area',
-                                         'cntyname', 'zipname']]
-    df_zips_and_fips.columns = ['fip', 'zip', 'county', 'city_name']
+    try:
+        import pickle
+        data_file_dir = os.path.join(current_dir, 'zips_to_fips')
+        with open(data_file_dir, 'rb') as f:
+            lookup_dict = pickle.load(f)
+        return lookup_dict
 
-    lookup_dict = {}
-    for _, row in df_zips_and_fips.iterrows():
-        lookup_dict[row['zip']] = (row['fip'], row['county'], row['city_name'])
-    return lookup_dict
+    except RuntimeError:
+        df_zips_and_fips = pd.read_csv(os.path.join(current_dir, 'fips_and_zip.txt'),
+                                       skiprows=1,
+                                       dtype={'FIPS state': str,
+                                              'county': str,
+                                              'ZIP Census Tabulation Area': str})
+        df_zips_and_fips = df_zips_and_fips[['county',
+                                             'ZIP Census Tabulation Area',
+                                             'cntyname',
+                                             'zipname']]
+        df_zips_and_fips.columns = ['fip', 'zip', 'county', 'city_name']
+
+        lookup_dict = {}
+        for _, row in df_zips_and_fips.iterrows():
+            lookup_dict[row['zip']] = (row['fip'], row['county'], row['city_name'])
+
+        return lookup_dict
 
 
 def get_daily_data_by_county(counties=None, states=None, dates=None, fips=None):
@@ -129,14 +144,19 @@ def get_daily_data_by_county(counties=None, states=None, dates=None, fips=None):
     def get_daily(df_chunk):
         df_chunk = df_chunk[['date', 'deaths', 'cases']]
         df_with_date = df_chunk.set_index(['date'])
-        df_with_date[['death_incremental', 'cases_incremental']] = df_with_date.diff()
+        df_with_date[['deaths_incremental', 'cases_incremental']] = df_with_date.diff()
         return df_with_date
 
     covid_df = covid_df.groupby(['county', 'state', 'fips']).apply(get_daily).reset_index()
     if dates:
         covid_df = covid_df[covid_df['date'].isin(dates)]
 
-    covid_df.dropna(subset=['death_incremental', 'cases_incremental'], inplace=True)
+    covid_df.dropna(subset=['deaths_incremental', 'cases_incremental'], inplace=True)
+
+    covid_df.rename({'deaths': 'deaths_cumulative',
+                     'cases': 'cases_cumulative',
+                     'deaths_incremental': 'deaths',
+                     'cases_incremental': 'cases'}, axis=1, inplace=True)
     covid_df.reset_index(drop=True, inplace=True)
     return covid_df
 
