@@ -75,7 +75,9 @@ def _get_fips_to_zips_dict():
             lookup_dict = pickle.load(f)
         return lookup_dict
 
-    except RuntimeError:
+    except ValueError:
+        # this pickle way only works for >= python3.8
+        # fall back to reading the txt
         df_zips_and_fips = pd.read_csv(os.path.join(current_dir, 'fips_and_zip.txt'),
                                        skiprows=1,
                                        dtype={'FIPS state': str,
