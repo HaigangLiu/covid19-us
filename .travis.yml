@@ -14,6 +14,7 @@ deploy:
   password:
     secure: GcYnIFo2GRAJB6Cw8ttNmu8LlZUXWRj+teUk0lengwmPmijcLvHMUtIdBRQ3xiIEEooPXyKvDzrX689zpzdsLcCetXAGtWF3fGPoMzBkhQVuqx41Mle/i8Gohd0DzFvlgwYj0VXEKPN8qQLgAqRXd4dlAUb/X2gY5XQx4F+0CYnHbcXqfLxTElNJzXZnwLvYT0+UmcX7efphu6PDKVnlG3H4VPpfHsywxNX0Ddg62c5ZS3OeJVcDziIDOLNpd+rFeRYFlsULfukmvy1aUGDXZ63V/sKqqYxjJSL2WFlOGrHrzcgKcGJGeRx3yTEZlKU3jFP518crP0T1RnpVltN6TBiALln0PSzFyk5+EmH+fsSnnxPEw75oTS6EWvOmkd9XUduhDASYxXFw3iP/b/zPxlF8Y70jwJUJQBZFh0/sZ9+XhCgwG3LtcWJfB1HAP98eOsUNbEXw5haFsakQKww07Cbc/F4uwPA2nH8enPpa19OlWcSpw4RSupkbXatBr7HOVTCdXfipi7OSbLrLsvDSI6zCIEVmsz+x1vT6InjzC9THgGEYU+a067B/wQowb8hmmV08Dg7T3BzjvzgRtoXY83wilcy6EZJA4jEAj6U1gSDqPX3FXgIhRmmAfcjno65CtT8CeBAp3oEL6zyeYAjgx8JR8hhE4c/1Z0TWQjLeY2M=
   on:
+    branch: main
     tags: true
-    repo: HaigangLiu/covid19_us
+    repo: HaigangLiu/covid19-us
     python: 3.8
