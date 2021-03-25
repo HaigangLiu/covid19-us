@@ -12,7 +12,6 @@ cligj==0.7.1
 colorama==0.4.4
 cookiecutter==1.7.2
 covid-data-by-zip-code==0.1.4
-cryptography==3.4.6
 docutils==0.16
 fsspec==0.8.7
 idna==2.10
