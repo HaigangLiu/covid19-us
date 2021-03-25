@@ -37,6 +37,7 @@ Pygments==2.8.1
 pylint==2.7.2
 pyOpenSSL==20.0.1
 pyparsing==2.4.7
+pyproj>=2.0
 pytest==6.2.2
 python-dateutil==2.8.1
 python-slugify==4.0.1
