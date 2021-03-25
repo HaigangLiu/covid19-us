@@ -165,7 +165,7 @@ def get_daily_data_by_county(counties=None, states=None, dates=None, fips=None):
 
 def get_daily_data_by_zip_code(states=None, zip_codes=None, dates=None):
     """
-    get the covid cases count based on zip code and dates
+    get covid cases count based on zip code and dates
     :param states: two-letter short hand for states
     :param zip_codes: list or string of zip code
     :param dates: list or string of states
