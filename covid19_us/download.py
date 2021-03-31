@@ -70,7 +70,7 @@ def _get_fips_to_zips_dict():
     """
     try:
         import pickle
-        data_file_dir = os.path.join(current_dir, 'zips_to_fips')
+        data_file_dir = os.path.join(current_dir, 'zips_to_fips.pkl')
         with open(data_file_dir, 'rb') as f:
             lookup_dict = pickle.load(f)
         return lookup_dict

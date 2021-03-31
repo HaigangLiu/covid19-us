@@ -100,7 +100,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'covid_data_by_zip_codedoc'
+htmlhelp_basename = 'covid19-uscodedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------
@@ -129,7 +129,7 @@ latex_elements = {
 latex_documents = [
     (master_doc, 'covid19_us.tex',
      'covid19_us Documentation',
-     'Audrey Roy Greenfeld', 'manual'),
+     'Haigang Liu (Albert)', 'manual'),
 ]
 
 

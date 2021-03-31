@@ -1,4 +1,4 @@
-Welcome to covid_data_by_zip_code's documentation!
+Welcome to covid19-us's documentation!
 ======================================
 
 .. toctree::
