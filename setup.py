@@ -18,8 +18,8 @@ test_requirements = ['pytest>=3', ]
 
 setup(
     author="Haigang Liu",
-    author_email='liuhaigang1989@gmail.com',
-    python_requires='>=3.5',
+    author_email='haigang@email.sc.edu',
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -42,7 +42,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/HaigangLiu/covid19_us',
-    version='0.1.8',
+    url='https://github.com/HaigangLiu/covid19-us',
+    version='1.0.0',
     zip_safe=False,
 )
