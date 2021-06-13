@@ -120,18 +120,20 @@ def download_by_zip_code(zip_code_list=None, dates=None):
         dates = [dates]
 
     lookup_table = get_roll_up_county(rollup_from='zip')
-    fips_list = []
+
+    output_list = []
     for zip_code in zip_code_list:
         try:
             state, county, fips_code, city_name = lookup_table[zip_code]
-            fips_list.append(fips_code)
+            slice_ = output_df[output_df['fips'] == fips_code]
+            result_per_zip_code = slice_[slice_['date'].isin(pd.to_datetime(dates))]
+            result_per_zip_code['zip_code'] = zip_code.zfill(5)
+            output_list.append(result_per_zip_code)
         except KeyError:
             logger.warning(f'cannot reverse lookup the zipcode {zip_code}')
             logger.warning(f'skipping')
 
-    output_df = output_df[output_df['fips'].isin(fips_list)]
-    output_df = output_df[output_df['date'].isin(pd.to_datetime(dates))]
-    return output_df
+    return pd.concat(output_list)
 
 
 def get_roll_up_county(rollup_from='zip'):
